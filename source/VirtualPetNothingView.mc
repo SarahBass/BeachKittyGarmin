@@ -147,8 +147,24 @@ else{userHEART = getHeartRate().toString();}
        var xsmall =  WatchUi.loadResource( Rez.Fonts.xsmallFont );
        
       View.onUpdate(dc);
+   
+   
+   //Sky
+   dc.setColor(0x0BCBFF, Graphics.COLOR_TRANSPARENT);
+   dc.fillCircle(centerX, centerX, centerX); 
 
-    
+   //BG Water
+   dc.setColor(0x008ED2, Graphics.COLOR_TRANSPARENT);
+   dc.fillEllipse(centerX/7, (centerY)+((today.sec%4)*4), (centerX*3)/4, (centerY/3));
+   dc.fillEllipse((centerX*1.5)-((today.sec%4)*4), (centerY*1.2)-((today.sec%4)*4),  (centerX), (centerY/2)); 
+   dc.fillEllipse((centerX*0.7)+((today.sec%4)*4), (centerY*1.2)-((today.sec%4)*4),  (centerX), (centerY/2)); 
+   dc.fillEllipse((centerX*2), ((centerY*15)/16)+((today.sec%4)*4), (centerX*3)/4, (centerY/3)); 
+
+   //Foreground Water
+   dc.setColor(0x0064AD, Graphics.COLOR_TRANSPARENT);
+   dc.fillEllipse(centerX/4, ((centerY*5)/4)+((today.sec%3)*2), (centerX*5)/4, (centerY/2)); 
+   dc.fillEllipse((centerX*6)/4, ((centerY*5)/4)+(today.sec%3), (centerX*6)/4, (centerY/2)); 
+   dc.fillEllipse(centerX, centerY*2, (centerX*6)/4, (centerY/2)); 
 
   if (System.getDeviceSettings().screenHeight < 301){
     wordFont =  WatchUi.loadResource( Rez.Fonts.xsmallFont );
