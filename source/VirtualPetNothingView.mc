@@ -151,21 +151,23 @@ else{userHEART = getHeartRate().toString();}
    
    //Sky
    dc.setColor(0x0BCBFF, Graphics.COLOR_TRANSPARENT);
-   dc.fillCircle(centerX, centerX, centerX); 
+   if (mySettings.screenShape == 1){
+   dc.fillCircle(centerX, centerX, centerX);}
+   else{dc.fillRectangle(0, 0, centerX*2,centerY*2) ;}
    dc.setColor(0xFFFFFF, Graphics.COLOR_TRANSPARENT);
    //right clouds
    dc.fillEllipse((centerX*1.8)-((today.sec%3)), (centerY*0.6)-((today.sec%3)),  (centerX/3), (centerY/4)); 
    dc.fillEllipse((centerX*1.5)-((today.sec%3)), (centerY*0.75)-((today.sec%3)),  (centerX/3), (centerY/4)); 
    //right bubble
-   dc.fillEllipse((centerX*1.75)-(((today.sec%40)*4)^2), (centerY*0.25)+(today.sec%10),  (centerX/20), (centerY/20));  
+   dc.fillCircle((centerX*1.75)-(((today.sec%40)*4)^2), (centerY*0.25)+(today.sec%10),  (centerX/20));  
    
    //left clouds
    dc.fillEllipse((centerX*0.05)+((today.sec%2)), (centerY*0.7)-((today.sec%3)),  (centerX/6), (centerY/6)); 
    dc.fillEllipse((centerX*0.25)+((today.sec%2)), (centerY*0.8)-((today.sec%3)),  (centerX/5), (centerY/5));
    dc.fillEllipse((centerX*-0.01)+((today.sec%2)), (centerY*0.8)-((today.sec%3)),  (centerX/3), (centerY/5));
    //Left bubble
-   dc.fillEllipse((centerX*0.25)+((today.sec%30)*4), (centerY*0.5)-((today.sec%30)*4),  (centerX/30), (centerY/30));  
-   dc.fillEllipse((centerX/4)+(((today.sec%60)*4)^2), (centerY*0.25)+(today.sec%60),  (centerX/15), (centerY/15));  
+   dc.fillCircle((centerX*0.25)+((today.sec%30)*4), (centerY*0.5)-((today.sec%30)*4),  (centerX/30));  
+   dc.fillCircle((centerX/4)+(((today.sec%60)*4)^2), (centerY*0.25)+(today.sec%60),  (centerX/15));  
    //BG Water
    dc.setColor(0x008ED2, Graphics.COLOR_TRANSPARENT);
    dc.fillEllipse(centerX/7, (centerY)+((today.sec%4)*4), (centerX*3)/4, (centerY/3));
@@ -179,11 +181,17 @@ else{userHEART = getHeartRate().toString();}
    dc.fillEllipse((centerX*6)/4, ((centerY*5)/4)+(today.sec%3), (centerX*6)/4, (centerY/2)); 
    dc.fillEllipse(centerX, centerY*2, (centerX*6)/4, (centerY/2)); 
 
-
+//bubbles
+   dc.setColor(0x0BCBFF, Graphics.COLOR_TRANSPARENT);
+   dc.fillCircle((centerX*0.25)+((today.sec%4)*4), (centerY*1.5)-((today.sec%40)*4),  (centerY/30));  
+   dc.fillCircle((centerX*1.7)+(((today.sec%4)*4)^2), (centerY*1.7)-(today.sec%40)*4,   (centerY/15)); 
+   dc.fillCircle((centerX*1.5)+((today.sec%4)*4), (centerY*2)-((today.sec%40)*4), (centerY/10)-((today.sec%10)*4));  
+   dc.fillCircle((centerX*0.3)-(today.sec%4), (centerY*1.5)-(((today.sec%40)*4)^2), (centerY/40));  
+      dc.fillCircle((centerX*0.1)+((today.sec%4)*4), (centerY*1.2)-((today.sec%30)*4), (centerY/15)-((today.sec%5)*4));  
 
   if (System.getDeviceSettings().screenHeight < 301){
     wordFont =  WatchUi.loadResource( Rez.Fonts.xsmallFont );
-    dc.setColor(0xEF1EB8, Graphics.COLOR_TRANSPARENT);
+    dc.setColor(0x0BCBFF, Graphics.COLOR_TRANSPARENT);
         dc.drawText(centerX,centerY*1.45,xsmall,(weekdayArray[today.day_of_week]+" , "+ monthArray[today.month]+" "+ today.day +" " +today.year), Graphics.TEXT_JUSTIFY_CENTER );
         dc.setColor(0xFFFFFF, Graphics.COLOR_TRANSPARENT);
        dc.drawText(centerX,  centerY*0.87,LargeFont, timeString,  Graphics.TEXT_JUSTIFY_CENTER  );
@@ -212,11 +220,6 @@ else{
   dc.setColor(0x2AFA3F, Graphics.COLOR_TRANSPARENT);
 dc.drawText(centerX, centerY*1.7, small, (" a "), Graphics.TEXT_JUSTIFY_RIGHT );
   dc.drawText(centerX, centerY*1.7, wordFont, (""+userSTEPS), Graphics.TEXT_JUSTIFY_LEFT );}
-
-if (System.getDeviceSettings().screenHeight >= 260){
-dc.setColor(0x555555, Graphics.COLOR_TRANSPARENT);
-dc.drawText(centerX*1.5, centerY*0.62, smallFont, weather(cond),Graphics.TEXT_JUSTIFY_RIGHT);      
-dc.drawText(centerX*1.5, centerY*0.75, wordFont, " "+TEMP+" "+FC, Graphics.TEXT_JUSTIFY_LEFT );}
 
   }else{
       
