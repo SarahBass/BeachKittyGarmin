@@ -227,17 +227,17 @@ dc.drawText(centerX*1.5, centerY*0.75, wordFont, " "+TEMP+" "+FC, Graphics.TEXT_
 
 if (today.sec%20==0 ||today.sec%20==1){
 dc.setColor(0xFFFF35, Graphics.COLOR_TRANSPARENT);
-dc.drawText(centerX*0.75, centerY*1.75, smallFont, "b",Graphics.TEXT_JUSTIFY_RIGHT);
-dc.drawText(centerX*0.75, flash, wordFont, (sunriseHour + ":" + sunrise.min.format("%02u")+"AM"), Graphics.TEXT_JUSTIFY_LEFT );     
+dc.drawText(centerX*0.9, centerY*1.75, smallFont, "b",Graphics.TEXT_JUSTIFY_RIGHT);
+dc.drawText(centerX*0.9, flash, wordFont, (sunriseHour + ":" + sunrise.min.format("%02u")+"AM"), Graphics.TEXT_JUSTIFY_LEFT );     
 
 }else if (today.sec%20==2 ||today.sec%20==3){
 dc.setColor(0xFFFF35, Graphics.COLOR_TRANSPARENT);
-dc.drawText(centerX*0.75, centerY*1.75, smallFont, "b",Graphics.TEXT_JUSTIFY_RIGHT);
-dc.drawText(centerX*0.75, flash, wordFont, (sunsetHour + ":" + sunset.min.format("%02u")+"PM"), Graphics.TEXT_JUSTIFY_LEFT); 
+dc.drawText(centerX*0.9, centerY*1.75, smallFont, "b",Graphics.TEXT_JUSTIFY_RIGHT);
+dc.drawText(centerX*0.9, flash, wordFont, (sunsetHour + ":" + sunset.min.format("%02u")+"PM"), Graphics.TEXT_JUSTIFY_LEFT); 
 }
 else if (today.sec%20==4 || today.sec%20==5|| today.sec%20==6){  
   dc.setColor(0xFFFF35, Graphics.COLOR_TRANSPARENT);
-dc.drawText(centerX, centerY*1.75, smallFont, weather(cond),Graphics.TEXT_JUSTIFY_RIGHT);      
+dc.drawText(centerX*0.95, centerY*1.75, smallFont, weather(cond),Graphics.TEXT_JUSTIFY_RIGHT);      
 dc.drawText(centerX, flash, wordFont, " "+TEMP+" "+FC, Graphics.TEXT_JUSTIFY_LEFT );}  
 else if (today.sec%20==7 ||today.sec%20==8 || today.sec%20==9){ 
 dc.setColor(0x0BCBFF, Graphics.COLOR_TRANSPARENT);   
